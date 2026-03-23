@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Anonymous+Pro&family=Inclusive+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Codystar:300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald:700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --color-primary: #f6aca2;
+  --color-secondary: #f49b90;
+  --color-tertiary: #f28b7d;
+  --color-quaternary: #f07a6a;
+  --color-quinary: #ee6352;
+}
+
+body {
+    min-height: 100vh; font-family: 'Inclusive Sans', sans-serif;
+    background: linear-gradient(70deg, #1a2a6c, #b21f1f, #fdbb2d); 
+    overflow: hidden; color: white;
+}
+
+/* --- ESTILOS DEL FONDO DE ESTRELLAS --- */
+.stars {
+  width: 1px; height: 1px; position: absolute; background: white;
+  box-shadow: 2vw 5vh 2px white, 10vw 8vh 2px white, 15vw 15vh 1px white,
+    22vw 22vh 1px white, 28vw 12vh 2px white, 32vw 32vh 1px white,
+    38vw 18vh 2px white, 42vw 35vh 1px white, 48vw 25vh 2px white,
+    53vw 42vh 1px white, 58vw 15vh 2px white, 63vw 38vh 1px white,
+    68vw 28vh 2px white, 73vw 45vh 1px white, 78vw 32vh 2px white,
+    83vw 48vh 1px white, 88vw 20vh 2px white, 93vw 52vh 1px white,
+    98vw 35vh 2px white, 5vw 60vh 1px white, 12vw 65vh 2px white,
+    18vw 72vh 1px white, 25vw 78vh 2px white, 30vw 85vh 1px white,
+    35vw 68vh 2px white, 40vw 82vh 1px white, 45vw 92vh 2px white,
+    50vw 75vh 1px white, 55vw 88vh 2px white, 60vw 95vh 1px white,
+    65vw 72vh 2px white, 70vw 85vh 1px white, 75vw 78vh 2px white,
+    80vw 92vh 1px white, 85vw 82vh 2px white, 90vw 88vh 1px white,
+    95vw 75vh 2px white;
+  animation: twinkle 8s infinite linear;
+}
+
+.shooting-star {
+  position: absolute; width: 100px; height: 2px;
+  background: linear-gradient(90deg, white, transparent);
+  animation: shoot 3s infinite ease-in;
+}
+
+@keyframes twinkle { 0%, 100% { opacity: 0.8; } 50% { opacity: 0.4; } }
+@keyframes shoot { 0% { transform: translateX(0) translateY(0) rotate(25deg); opacity: 1; } 100% { transform: translateX(120vw) translateY(50vh) rotate(25deg); opacity: 0; } }
+
+.stars::after {
+  content: ""; position: absolute; width: 1px; height: 1px; background: white;
+  box-shadow: 8vw 12vh 2px white, 16vw 18vh 1px white, 24vw 25vh 2px white,
+    33vw 15vh 1px white, 41vw 28vh 2px white, 49vw 35vh 1px white,
+    57vw 22vh 2px white, 65vw 42vh 1px white, 73vw 28vh 2px white,
+    81vw 48vh 1px white, 89vw 32vh 2px white, 97vw 45vh 1px white,
+    3vw 68vh 2px white, 11vw 75vh 1px white, 19vw 82vh 2px white,
+    27vw 88vh 1px white, 35vw 72vh 2px white, 43vw 85vh 1px white,
+    51vw 92vh 2px white, 59vw 78vh 1px white;
+  animation: twinkle 6s infinite linear reverse;
+}
+
+/* --- ESTILOS PRINCIPALES --- */
+.Contenedor-Binicio { display: flex; justify-content: center; align-items: center; height: 100vh; background: #fda9a9; position: fixed; width: 100%; top: 0; left: 0; z-index: 9999; }
+#BVer { font-family: 'Bungee', cursive; color: transparent; font-size: 5rem; position: relative; cursor: pointer; text-align: center; width: 600px; height: 120px; display: flex; justify-content: center; align-items: center; }
+#BVer span { display: block; position: absolute; height: 50%; width: 100%; overflow: hidden; left: 0; pointer-events: none; }
+#BVer span:first-child:before, #BVer span:last-child:before { content: attr(data-text); display: block; transition: all 0.5s ease-in-out; background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3); -webkit-background-clip: text; background-clip: text; color: transparent; background-size: 200% auto; animation: animacionRGB 3s linear infinite; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5); }
+#BVer span:first-child { top: 0; }
+#BVer span:last-child { bottom: 0; }
+#BVer span:first-child:before { transform: translateY(35px); }
+#BVer span:last-child:before { transform: translateY(-30px); }
+#BVer:hover span:first-child:before { transform: translateY(5px); filter: brightness(1.5); text-shadow: 0 0 30px rgba(255,255,255,1); }
+#BVer:hover span:last-child:before { transform: translateY(-55px); filter: brightness(1.5); text-shadow: 0 0 30px rgba(255,255,255,1); }
+#BVer:before { content: ""; width: 60%; position: absolute; border-bottom: solid 8px #fff; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 10; transition: opacity 0.5s ease; }
+#BVer:hover:before { opacity: 0; } 
+
+.ventana-emergente { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white !important; padding: 40px; border-radius: 30px; z-index: 10000; color: black; text-align: center; width: 85%; max-width: 500px; box-shadow: 0 0 50px rgba(0,0,0,0.8); }
+.mensaje-bienvenida { color: black !important; font-size: 1.8rem; font-weight: bold; margin-bottom: 30px; }
+
+.seccion-regalo { display: none; text-align: center; width: 100%; height: 100vh; overflow-y: auto; overflow-x: hidden; padding-top: 30px; box-sizing: border-box; }
+.eli-opcion { font-family: 'Bungee', cursive; font-size: 3.5rem; color: #adff2f; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); margin-bottom: 20px; }
+
+.reloj-gif-grande, .snoopy-gif-animado { display: block; margin: 0 auto; border-radius: 20px; max-width: 90%; }
+.reloj-gif-grande { width: 450px; } 
+.snoopy-gif-animado { width: 450px; margin-top: 20px; } 
+.typewriter-container { display: flex; justify-content: center; width: 100%; margin: 15px 0; padding: 10px; box-sizing: border-box;}
+
+/* SOLUCIÓN AL TEXTO RGB SUAVE INVISIBLE */
+.texto-rgb-suave {
+    background: linear-gradient(to right, #ffb3ba, #baffc9, #bae1ff, #ffffba, #ffb3ba);
+    -webkit-background-clip: text !important; 
+    background-clip: text !important; 
+    color: transparent !important; /* Fuerza la transparencia para ver el fondo RGB */
+    background-size: 200% auto; 
+    animation: animacionRGB 4s linear infinite;
+}
+
+.label-amor.cursor, .linda-typewriter {
+    width: 0; font-family: 'Anonymous Pro', monospace; font-size: 2.8rem;
+    white-space: nowrap; overflow: hidden; border-right: 5px solid #fff; margin: 0;
+}
+.label-amor.cursor { animation: typewriter 3s steps(28) 1s forwards, blinkingCursor 0.5s step-end infinite; }
+.linda-typewriter { animation: typewriter-linda 3s steps(33) 1s forwards, blinkingCursor 0.5s step-end infinite; }
+
+@keyframes typewriter { from { width: 0; } to { width: 28ch; } }
+@keyframes typewriter-linda { from { width: 0; } to { width: 33ch; } }
+@keyframes blinkingCursor { from, to { border-color: transparent } 50% { border-color: white } }
+
+.texto-rgb-neon {
+    font-size: 3.5rem; color: transparent; font-weight: bold; margin: 20px 0;
+    background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+    -webkit-background-clip: text; background-clip: text; background-size: 200% auto;
+    animation: animacionRGB 3s linear infinite; text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+@keyframes animacionRGB { to { background-position: 200% center; } }
+.Con { display: flex; justify-content: center; gap: 30px; margin: 30px auto; }
+.Button { font-family: 'Bungee', cursive; font-size: 1.8rem; padding: 20px 40px; background: #adff2f; color: black; border: 5px solid #2e7d32; border-radius: 20px; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+/* BOTÓN FLOTANTE: FADE IN y MOVIMIENTO */
+.Button-Flotante {
+    font-family: 'Bungee', cursive; font-size: 1.8rem; padding: 20px 40px; background: #ffeb3b;
+    border: 5px solid #f57f17; border-radius: 50px; position: fixed; 
+    transition: left 6s linear, top 6s linear, opacity 1s ease-in-out; 
+    z-index: 12000; cursor: pointer; color: black; opacity: 0;
+}
+
+canvas { display: block; margin: 20px auto; max-width: 95%; }
+
+/* --- ESTILOS DE LA PREGUNTA ¿QUÉ ES EL AMOR? --- */
+.seccion-final { display: none; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100vh; overflow-y: auto; text-align: center; box-sizing: border-box; }
+.pregunta-amor-container { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100vh;}
+.content { display: flex; align-content: center; justify-content: center; }
+
+.text-shadows {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary),
+      9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+    font-family: 'Bungee', sans-serif; font-weight: 400; text-transform: uppercase;
+    font-size: calc(2rem + 5vw); text-align: center; margin: 0; letter-spacing: 0.4rem;
+    animation: shadows 1.2s ease-in infinite, colorCambianteSuave 4s linear infinite;
+}
+
+@keyframes colorCambianteSuave {
+    0% { color: #ffb3ba; }
+    33% { color: #baffc9; }
+    66% { color: #bae1ff; }
+    100% { color: #ffb3ba; }
+}
+
+@keyframes shadows {
+  0% { text-shadow: none; }
+  10% { transform: translate(-3px, -3px); text-shadow: 3px 3px 0 var(--color-secondary); }
+  20% { transform: translate(-6px, -6px); text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary); }
+  30% { transform: translate(-9px, -9px); text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary); }
+  40% { transform: translate(-12px, -12px); text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary); }
+  50% { transform: translate(-12px, -12px); text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary); }
+  60% { text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary); }
+  70% { text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary); }
+  80% { text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary); }
+  90% { text-shadow: 3px 3px 0 var(--color-secondary); }
+  100% { text-shadow: none; }
+}
+
+/* --- TARJETA 3D SCSS COMPILADA SOLO PARA TENOR.GIF --- */
+.slider {
+  width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;
+}
+.slider .items-group { width: 100%; height: 100%; position: relative; display: flex; justify-content: center; align-items: center; }
+.slider .items-group .item { top: 0px; left: 0px; opacity: 0; width: 100%; height: 100%; display: flex; overflow: hidden; transition: 0.5s; visibility: hidden; position: relative; padding: 50px 20px; position: absolute; align-items: center; justify-content: center; box-sizing: border-box; }
+.slider .items-group .item:hover .bg { opacity: 0.2; }
+.slider .items-group .item:hover .block { box-shadow: 0px 0px 50px #333; }
+.slider .items-group .item.active { opacity: 1; visibility: visible; }
+.slider .items-group .item .block { 
+    width: 100%; height: 100%; padding: 20px; color: #ffffff; transition: box-shadow 0.5s; 
+    max-width: 500px; max-height: 600px; border-radius: 10px; transform: scale(1.03); 
+    box-sizing: border-box; background-size: cover; background-position: center; 
+    background-attachment: fixed; box-shadow: none; background-color: rgba(0, 0, 0, 0.7); 
+    border: 2px solid rgba(255, 255, 255, 0.3); 
+}
+.slider .items-group .item .block .circleLight { top: 0px; left: 0px; opacity: 0; content: ''; width: 100%; height: 100%; display: block; transition: 0.5s; position: absolute; border-radius: 10px; background: radial-gradient(circle at 80px 40px, #fff, transparent); pointer-events: none;}
+.slider .items-group .item .block .text { width: 100%; height: 100%; display: flex; text-align: center; flex-direction: column; justify-content: center; align-items: center; background-position: center; background-attachment: fixed; z-index: 2; position: relative; }
+.slider .items-group .item .block:hover { box-shadow: 0px 0px 70px #111; }
+.slider .items-group .item .block:hover .circleLight { opacity: 0.4; }
+.slider .navigations { bottom: 0px; width: 100%; position: absolute; }
+.slider .navigations .dots { height: 20px; padding: 10px 0px; text-align: center; }
+.slider .navigations .dots li { width: 10px; height: 10px; cursor: pointer; transition: 0.3s; background: #fff; border-radius: 50%; display: inline-block; vertical-align: middle; }
+.slider .navigations .dots li + li { margin-left: 10px; }
+.slider .navigations .dots li:hover { filter: blur(2px); }
+.slider .navigations .dots li.active { width: 15px; height: 15px; }
+.slider .navigations .dots li.active:hover { filter: blur(0px); }
+
+.gif-tenor-card { width: 95%; border-radius: 10px; max-width: 350px; margin-bottom: 20px;}
+
+.poema-dialogo-card p {
+    font-family: 'Open Sans', sans-serif; font-size: 22px;
+    color: white; line-height: 1.5; margin: 5px 0; text-shadow: 0 0 5px black;
+}
+
+.btn-revelar-final { position: absolute; bottom: 30px; z-index: 100;}
+
+/* --- PANTALLA FINAL ESTRELLAS: Gato, Neón y Amor --- */
+.gato-amor-container {
+    display: none; flex-direction: column; align-items: center; justify-content: center; gap: 40px;
+    width: 100%; height: 100vh; position: absolute; top: 0; left: 0; z-index: 13000;
+}
+
+.gato-neon-container {
+    display: flex; flex-direction: row; align-items: center; justify-content: center;
+    gap: 50px; width: 90%; max-width: 1200px;
+}
+
+.gif-gato-final { width: 500px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); max-width: 100%; }
+
+.neons { text-align: center; font-family: 'Codystar', cursive; flex: 1; }
+.neons h1 {
+  font-size: 4.5rem; text-align: center; font-weight: bold; line-height: 1.2;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { color: #fff; text-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2; }
+  to { color: gray; text-shadow: 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 90px #00fff2; }
+}
+
+.gif-amor-esquina { position: fixed; bottom: 40px; right: 15%; width: 280px; border-radius: 15px; z-index: 14000;}
+.btn-reiniciar-final { margin-top: 30px; z-index: 15000; position: relative;}
+
+@media (max-width: 900px) {
+    .gato-neon-container { flex-direction: column; gap: 30px; }
+    .gif-gato-final { width: 90%; }
+    .neons h1 { font-size: 3rem; }
+    .slider .items-group { height: 650px; }
+    .slider .items-group .item .block p { font-size: 18px; }
+}
+
+@media (max-width: 768px) {
+    #BVer { font-size: 3rem; width: 350px; }
+    .label-amor.cursor, .linda-typewriter { font-size: 1.5rem; }
+    .texto-rgb-neon { font-size: 2.2rem; }
+    .eli-opcion { font-size: 2.5rem; }
+    .text-shadows { font-size: calc(1.5rem + 5vw); }
+    .gif-amor-esquina { width: 150px; right: 5%; bottom: 20px;}
+}
