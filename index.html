@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nicole</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="StarryBackground" style="display: none;">
+        <div class="stars"></div>
+        <div class="shooting-star" style="top: 20%; left: -100px; animation-delay: 0s;"></div>
+        <div class="shooting-star" style="top: 35%; left: -100px; animation-delay: 1s;"></div>
+        <div class="shooting-star" style="top: 50%; left: -100px; animation-delay: 2s;"></div>
+    </div>
+
+    <div class="Contenedor-Binicio" id="SeccionInicio">
+        <div id="BVer" data-text="CLICKA AQUI" onclick="irAlMensaje()">
+            <span data-text="CLICKA AQUI"></span>
+            <span data-text="CLICKA AQUI"></span>
+            CLICKA AQUI
+        </div>
+    </div>
+
+    <div id="resultado" class="ventana-emergente" style="display: none;">
+        <p class="mensaje-bienvenida">Hola, antes de iniciar, solo quiero recordarte que eres muy especial para mí y gracias por todo. <3</p>
+        <button id="BotonCerrar" class="Button">continuar</button>
+    </div>
+
+    <div class="seccion-regalo" id="SeccionPrincipal" style="display: none;">
+        <h1 id="Titulo" class="eli-opcion">ELIJE UNA OPCION</h1>
+        
+        <img src="reloj.gif" alt="Reloj" class="reloj-gif-grande">
+        
+        <div class="typewriter-container">
+            <p class="label-amor cursor texto-rgb-suave">Nuestro amor comenzó hace :</p>
+        </div>
+        
+        <div id="contador-tiempo" class="texto-rgb-neon"></div>
+        
+        <div class="Con">
+            <button class="Button" id="B1">1 FLOR</button>
+            <button class="Button" id="B12">12 FLORES :)</button>
+        </div>
+        
+        <div class="Texto" id="SeccionTexto" style="display: none;">
+            <div class="typewriter-container">
+                <h2 id="Text" class="linda-typewriter texto-rgb-suave">Para la niña mas Linda del Mundo.</h2>
+            </div>
+            <img src="snoppy.gif" alt="Snoopy" class="snoopy-gif-animado">
+        </div>
+        
+        <canvas id="Flor" width="800" height="600"></canvas>
+        
+        <button id="BotonLoco1" class="Button-Flotante" style="display: none;" onclick="mostrarPreguntaAmor()">¿quieres saber algo?</button>
+    </div>
+
+    <div id="PaginaFinal" class="seccion-final" style="display: none;">
+        
+        <div id="PreguntaAmorContainer" class="pregunta-amor-container content">
+            <h2 class="text-shadows" id="TextoAmorEfecto">¿QUÉ ES EL AMOR?</h2>
+        </div>
+        
+        <button id="BotonLoco2" class="Button-Flotante" style="display: none;" onclick="mostrarRespuestaFinal()">¿quieres saber mi respuesta?</button>
+        
+        <div id="SeccionSliderTenor" class="slider" style="display: none;">
+            <div class="items-group">
+                <div class="item active">
+                    <div class="block">
+                        <span class="circleLight"></span>
+                        <div class="text">
+                            <img src="tenor.gif" alt="tenor.gif" class="gif-tenor-card">
+                            <div id="PoemaTipeo" class="poema-dialogo-card"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="Button btn-revelar-final" onclick="revelarNocheEstrellada()">¿CREES QUE YA ESTOY LOCO?</button>
+        </div>
+
+        <div id="PantallaGatoAmor" class="gato-amor-container" style="display: none;">
+            <div class="gato-neon-container">
+                <img src="gato.gif" alt="gato.gif" class="gif-gato-final">
+                <div class="neons">
+                    <h1><em>Pero tal vez sea porque te amo</em></h1>
+                </div>
+            </div>
+            <button class="Button btn-reiniciar-final" onclick="location.reload()">VOLVER A EMPEZAR</button>
+            <img src="amor.gif" alt="amor.gif" class="gif-amor-esquina">
+        </div>
+
+    </div>
+
+    <audio id="MusicaFondo" loop>
+        <source src="vitas.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="app.js"></script>
+</body>
+</html>
